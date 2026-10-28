@@ -15,10 +15,10 @@ html,body{margin:0;min-height:100%;background:radial-gradient(circle at 50% -10%
 </head>
 <body>
 <div id="app">
-<header class="header"><div class="brand"><div class="crest">⚔</div><div><div class="eyebrow">ПЕРВАЯ ИГРА • ПРОТОТИП 0.4</div><h1>CRUSADER DEFENSE</h1><div class="small">Первый рубеж · Живой гарнизон и оазис</div></div></div><div class="statline"><div class="stat"><div class="label">🪙 Золото</div><div id="gold" class="value">250</div></div><div class="stat"><div class="label">❤ Крепость</div><div id="lives" class="value">20</div></div><div class="stat"><div class="label">⚑ Волна</div><div id="wave" class="value">0 / 10</div></div></div></header>
-<section class="board-wrap" aria-label="Игровое поле"><canvas id="game" role="img" aria-label="Изометрическая пустынная карта. Нажимайте на круглые фундаменты для размещения башен"></canvas><div class="canvas-label"><small>ГЛАВА I</small>ПУСТЫННЫЙ ПЕРЕВАЛ</div><div class="zoom"><button id="zoomIn" title="Приблизить карту" aria-label="Приблизить карту">+</button><button id="zoomOut" title="Отдалить карту" aria-label="Отдалить карту">−</button><button id="zoomReset" title="Показать карту целиком" aria-label="Показать карту целиком" style="font-size:15px">⌗</button></div><div class="map-help"><span>👆 Выбери башню → площадку</span><span>✋ Проведи для перемещения карты</span></div><div id="toast" class="toast" aria-live="polite"></div><div id="overlay" class="overlay"><div class="modal"><div id="modalIcon" class="icon">🏰</div><h2 id="modalTitle">Победа!</h2><p id="modalText"></p><button class="primary" id="again">Играть снова</button></div></div></section>
-<div class="bottom"><div class="panel"><h2>⚒ Построить защиту</h2><div id="towerList" class="tower-list"><button class="tower" data-kind="archer"><span class="emoji">🏹</span><strong>Лучники</strong><span class="cost">🪙 70</span><span class="note">Быстрые стрелы</span></button><button class="tower" data-kind="crossbow"><span class="emoji">🛡️</span><strong>Арбалетчики</strong><span class="cost">🪙 110</span><span class="note">Мощный выстрел</span></button><button class="tower" data-kind="ballista"><span class="emoji">⚙️</span><strong>Баллиста</strong><span class="cost">🪙 160</span><span class="note">Урон по площади</span></button><button class="tower" data-kind="barracks"><span class="emoji">⚔️</span><strong>Казармы</strong><span class="cost">🪙 130</span><span class="note">Гарнизон защищает дорогу</span></button></div></div><div class="panel action-panel"><div class="actions"><button class="primary" id="startWave">▶ Начать волну 1</button><button class="secondary" id="pause" title="Пауза">Ⅱ</button><button class="secondary" id="speed" title="Скорость игры">1×</button></div><div class="info" id="selectionInfo">Выбери башню снизу, затем нажми на <strong>круглое основание</strong> на карте. У тебя 250 золота для начала обороны.</div><div class="selected-actions"><button class="secondary" id="upgrade" disabled>⬆ Улучшить</button><button class="secondary" id="sell" disabled>🪙 Продать</button></div><div class="status" id="status">Подготовь защиту крепости к первой атаке.</div></div></div>
-<p class="foot">Версия 0.4 · Анимированный гарнизон и сражения · Игровой баланс сохранён</p>
+<header class="header"><div class="brand"><div class="crest">⚔</div><div><div class="eyebrow">ПЕРВАЯ ИГРА • ПРОТОТИП 0.5</div><h1>CRUSADER DEFENSE</h1><div class="small">Первый рубеж · Сражения, ранения и подкрепления</div></div></div><div class="statline"><div class="stat"><div class="label">🪙 Золото</div><div id="gold" class="value">250</div></div><div class="stat"><div class="label">❤ Крепость</div><div id="lives" class="value">20</div></div><div class="stat"><div class="label">⚑ Волна</div><div id="wave" class="value">0 / 10</div></div></div></header>
+<section class="board-wrap" aria-label="Игровое поле"><canvas id="game" role="img" aria-label="Изометрическая пустынная карта. Нажимайте на круглые фундаменты для размещения башен"></canvas><div class="canvas-label"><small>ГЛАВА I</small>ПУСТЫННЫЙ ПЕРЕВАЛ</div><div class="zoom"><button id="zoomIn" title="Приблизить карту" aria-label="Приблизить карту">+</button><button id="zoomOut" title="Отдалить карту" aria-label="Отдалить карту">−</button><button id="zoomReset" title="Показать карту целиком" aria-label="Показать карту целиком" style="font-size:15px">⌗</button></div><div class="map-help"><span>👆 Башня → площадка · ⚔ Рыцари блокируют</span><span>✋ Проведи для перемещения карты</span></div><div id="toast" class="toast" aria-live="polite"></div><div id="overlay" class="overlay"><div class="modal"><div id="modalIcon" class="icon">🏰</div><h2 id="modalTitle">Победа!</h2><p id="modalText"></p><button class="primary" id="again">Играть снова</button></div></div></section>
+<div class="bottom"><div class="panel"><h2>⚒ Построить защиту</h2><div id="towerList" class="tower-list"><button class="tower" data-kind="archer"><span class="emoji">🏹</span><strong>Лучники</strong><span class="cost">🪙 70</span><span class="note">Быстрые стрелы</span></button><button class="tower" data-kind="crossbow"><span class="emoji">🛡️</span><strong>Арбалетчики</strong><span class="cost">🪙 110</span><span class="note">Мощный выстрел</span></button><button class="tower" data-kind="ballista"><span class="emoji">⚙️</span><strong>Баллиста</strong><span class="cost">🪙 160</span><span class="note">Урон по площади</span></button><button class="tower" data-kind="barracks"><span class="emoji">⚔️</span><strong>Казармы</strong><span class="cost">🪙 130</span><span class="note">Бойцы блокируют врагов</span></button></div></div><div class="panel action-panel"><div class="actions"><button class="primary" id="startWave">▶ Начать волну 1</button><button class="secondary" id="pause" title="Пауза">Ⅱ</button><button class="secondary" id="speed" title="Скорость игры">1×</button></div><div class="info" id="selectionInfo">Выбери башню снизу, затем нажми на <strong>круглое основание</strong> на карте. У тебя 250 золота для начала обороны.</div><div class="selected-actions"><button class="secondary" id="upgrade" disabled>⬆ Улучшить</button><button class="secondary" id="sell" disabled>🪙 Продать</button></div><div class="status" id="status">Подготовь защиту крепости к первой атаке.</div></div></div>
+<p class="foot">Версия 0.5 · Настоящий ближний бой · 10 волн · Оазис</p>
 </div>
 <script>
 (()=>{'use strict';
@@ -34,29 +34,100 @@ function at(d){if(d<=0)return {...route[0]};if(d>=totalDist)return {...route[rou
 const EN={raider:{name:'Налётчик',hp:55,speed:47,reward:14,life:1,color:'#a04d38',size:10},shield:{name:'Копейщик',hp:110,speed:34,reward:22,life:1,color:'#4c7555',size:12},rider:{name:'Всадник',hp:75,speed:81,reward:24,life:1,color:'#806443',size:13},siege:{name:'Таран',hp:320,speed:23,reward:55,life:3,color:'#585a4c',size:17},boss:{name:'Эмир',hp:880,speed:21,reward:200,life:5,color:'#733434',size:19}};
 // Ten curated waves; each extra group starts after the previous group has spawned.
 const WAVES=[[['raider',8]], [['raider',9],['shield',2]], [['raider',10],['rider',4]], [['shield',7],['raider',9]], [['rider',8],['shield',6]], [['siege',2],['raider',12]], [['shield',12],['rider',8]], [['siege',3],['rider',12]], [['shield',15],['siege',4],['rider',8]], [['raider',14],['shield',10],['siege',3],['boss',1]]];
-let gold=250,lives=20,wave=0,active=false,ended=false,paused=false,speed=1,chosenKind=null,chosenSite=-1,towers={},enemies=[],shots=[],particles=[],guards=[],queue=[],spawnTimer=0,last=0,toastTimeout=0,time=0,nextId=1;
-let zoom=1,panX=0,panY=0,cssW=800,cssH=500,scale=1,dpr=1;
+let gold=250,lives=20,wave=0,active=false,ended=false,paused=false,speed=1,chosenKind=null,chosenSite=-1,towers={},enemies=[],shots=[],particles=[],guards=[],queue=[],spawnTimer=0,last=0,toastTimeout=0,time=0,nextId=1,stats={blockedSeconds:0,guardDeaths:0,respawns:0,guardHits:0};
+let zoom=1,panX=0,panY=0,cssW=800,cssH=500,scale=1,dpr=1,nextHud=0;
 const clamp=(x,a,b)=>Math.min(b,Math.max(a,x));const hash=(a,b,seed=0)=>{let n=Math.sin(a*127.1+b*311.7+seed*97.37)*43758.5453123;return n-Math.floor(n)};
 function renderStats(){$('gold').textContent=gold;$('lives').textContent=lives;$('wave').textContent=wave+' / 10';document.querySelectorAll('.tower').forEach(b=>{b.classList.toggle('active',chosenKind===b.dataset.kind);b.classList.toggle('unaffordable',gold<T[b.dataset.kind].cost) });$('startWave').disabled=active||ended;$('startWave').textContent=active?'⚔ Идёт бой':wave===10?'✓ Все волны':'▶ Начать волну '+(wave+1);$('pause').textContent=paused?'▶':'Ⅱ';$('pause').classList.toggle('active',paused);$('speed').textContent=speed+'×';updateInfo()}
-function updateInfo(){const up=$('upgrade'),sell=$('sell'),info=$('selectionInfo'),status=$('status');if(chosenSite>=0&&towers[chosenSite]){const t=towers[chosenSite],data=T[t.kind],next=upgradeCost(t);up.disabled=t.level>=3||gold<next||ended;up.textContent=t.level>=3?'✓ Максимум':'⬆ Улучшить · '+next;sell.disabled=ended;sell.textContent='🪙 Продать · '+refund(t);info.innerHTML='<strong>'+data.name+' · Ур. '+t.level+'/3</strong><br>Урон: '+Math.round(data.damage*(1+(t.level-1)*.65))+' · Радиус: '+Math.round(data.range+(t.level-1)*15)+' · '+(t.kind==='barracks'?'Гарнизон '+Math.min(4,t.level+1)+' бойцов · задержка врагов':'Стрельба по врагам')}else{up.disabled=true;sell.disabled=true;up.textContent='⬆ Улучшить';sell.textContent='🪙 Продать';if(chosenKind)info.innerHTML='<strong>'+T[chosenKind].name+'</strong> · цена '+T[chosenKind].cost+' золота.<br>Нажми на свободный круглый фундамент на карте, чтобы построить башню.';else info.innerHTML='Выбери башню снизу, затем нажми на <strong>круглое основание</strong> на карте. Нажми на построенную башню для улучшения.'}status.textContent=ended?(lives?'Крепость выстояла.':'Крепость пала.'):paused?'⏸ Игра на паузе':active?'⚔ Волна '+wave+': осталось врагов '+(enemies.length+queue.length):wave===0?'Подготовь защиту крепости к первой атаке.':wave===10?'Все атаки отбиты.':'Передышка! Построй новые башни и начни следующую волну.'}
+function barracksStatus(id){const pack=guards.filter(g=>g.siteId===Number(id));const alive=pack.filter(g=>g.hp>0).length;const waiting=pack.filter(g=>g.hp<=0).map(g=>g.respawn);return 'Бойцы: '+alive+'/'+pack.length+(waiting.length?' · пополнение через '+Math.ceil(Math.min(...waiting))+' с':'')+' · блокировка врагов'}
+function updateInfo(){const up=$('upgrade'),sell=$('sell'),info=$('selectionInfo'),status=$('status');if(chosenSite>=0&&towers[chosenSite]){const t=towers[chosenSite],data=T[t.kind],next=upgradeCost(t);up.disabled=t.level>=3||gold<next||ended;up.textContent=t.level>=3?'✓ Максимум':'⬆ Улучшить · '+next;sell.disabled=ended;sell.textContent='🪙 Продать · '+refund(t);info.innerHTML='<strong>'+data.name+' · Ур. '+t.level+'/3</strong><br>Урон: '+Math.round(data.damage*(1+(t.level-1)*.65))+' · Радиус: '+Math.round(data.range+(t.level-1)*15)+' · '+(t.kind==='barracks'?barracksStatus(chosenSite):'Стрельба по врагам')}else{up.disabled=true;sell.disabled=true;up.textContent='⬆ Улучшить';sell.textContent='🪙 Продать';if(chosenKind)info.innerHTML='<strong>'+T[chosenKind].name+'</strong> · цена '+T[chosenKind].cost+' золота.<br>Нажми на свободный круглый фундамент на карте, чтобы построить башню.';else info.innerHTML='Выбери башню снизу, затем нажми на <strong>круглое основание</strong> на карте. Нажми на построенную башню для улучшения.'}status.textContent=ended?(lives?'Крепость выстояла.':'Крепость пала.'):paused?'⏸ Игра на паузе':active?'⚔ Волна '+wave+': осталось врагов '+(enemies.length+queue.length):wave===0?'Подготовь защиту крепости к первой атаке.':wave===10?'Все атаки отбиты.':'Передышка! Построй новые башни и начни следующую волну.'}
 function upgradeCost(t){return Math.round(T[t.kind].cost*(t.level===1?.75:1.15))}function refund(t){let spent=T[t.kind].cost;if(t.level>=2)spent+=Math.round(T[t.kind].cost*.75);if(t.level>=3)spent+=Math.round(T[t.kind].cost*1.15);return Math.round(spent*.65)}
 function notify(msg){const toast=$('toast');toast.textContent=msg;toast.classList.add('show');clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>toast.classList.remove('show'),2100)}
 function setKind(k){chosenKind=chosenKind===k?null:k;chosenSite=-1;renderStats();if(chosenKind)notify('Выбери свободную площадку для '+T[k].name.toLowerCase())}
 function selectSite(index){if(towers[index]){chosenSite=index;chosenKind=null;renderStats();return}if(chosenKind){const t=T[chosenKind];if(gold<t.cost){notify('Недостаточно золота!');return}gold-=t.cost;towers[index]={kind:chosenKind,level:1,cool:.16};ensureGuards();chosenSite=index;chosenKind=null;notify('Построены: '+t.name);renderStats()}else{chosenSite=-1;renderStats();notify('Сначала выбери тип башни внизу')}}
 function startWave(){if(active||ended||wave>=10)return;wave++;active=true;queue=[];let wait=0;for(const [kind,count] of WAVES[wave-1]){for(let n=0;n<count;n++){queue.push({kind,at:wait});wait+=(kind==='boss'?2.3:kind==='siege'?1.8:kind==='rider'?.7:1.05)}wait+=1.25}spawnTimer=0;paused=false;notify('Волна '+wave+'! Защитить крепость!');renderStats()}
-function spawn(kind){const e=EN[kind],bonus=1+(wave-1)*.18;enemies.push({id:nextId++,kind,hp:e.hp*bonus,maxHp:e.hp*bonus,progress:0,slow:0,dead:false,armor:kind==='shield'?.17:kind==='siege'?.24:kind==='boss'?.12:0})}
+function spawn(kind){const e=EN[kind],bonus=1+(wave-1)*.18;enemies.push({id:nextId++,kind,hp:e.hp*bonus,maxHp:e.hp*bonus,progress:0,slow:0,dead:false,attackTimer:.72,attackFlash:0,blocker:null,armor:kind==='shield'?.17:kind==='siege'?.24:kind==='boss'?.12:0})}
 function hurt(e,d){if(e.dead)return;e.hp-=d*(1-e.armor);if(e.hp<=0){e.dead=true;gold+=EN[e.kind].reward;const p=at(e.progress);for(let i=0;i<8;i++)particles.push({x:p.x,y:p.y-12,vx:(Math.random()-.5)*65,vy:-Math.random()*80,life:.5+Math.random()*.5,color:i%2?'#c59b51':'#f6d281',size:2+Math.random()*3});renderStats()}}
 function nearestTowerTarget(t,site){const p=tile(site.c,site.r);const range=T[t.kind].range+(t.level-1)*15;let best=null,mostProgress=-1;for(const e of enemies){if(e.dead)continue;const q=at(e.progress);if(Math.hypot(q.x-p.x,q.y-p.y)<range&&e.progress>mostProgress){best=e;mostProgress=e.progress}}return best}
-function update(dt){if(paused||ended)return;time+=dt;let dirty=false;if(active){spawnTimer+=dt;while(queue.length&&spawnTimer>=queue[0].at){spawn(queue.shift().kind);dirty=true}}for(const e of enemies){if(e.dead)continue;const factor=e.slow>0?.48:1;e.progress+=EN[e.kind].speed*dt*factor;e.slow=Math.max(0,e.slow-dt);if(e.progress>=totalDist){e.dead=true;lives=Math.max(0,lives-EN[e.kind].life);dirty=true;const p=route[route.length-2];for(let j=0;j<10;j++)particles.push({x:p.x,y:p.y-10,vx:(Math.random()-.5)*95,vy:-Math.random()*65,life:.5,color:'#b55439',size:3});if(lives<=0){endGame(false);break}}}enemies=enemies.filter(e=>!e.dead);
-if(!ended){for(const key in towers){const t=towers[key],site=sites[Number(key)];t.cool-=dt;if(t.cool>0)continue;const e=nearestTowerTarget(t,site);if(!e)continue;const base=T[t.kind],p=tile(site.c,site.r);t.cool=base.rate/Math.pow(1.13,t.level-1);t.flash=.22;const damage=base.damage*(1+(t.level-1)*.65);if(t.kind==='barracks'){e.slow=1.15;hurt(e,damage);markGuardStrike(Number(key),e);particles.push({x:at(e.progress).x,y:at(e.progress).y-14,vx:0,vy:-22,life:.35,color:'#f3e1ad',size:5})}else{shots.push({x:p.x,y:p.y-27,target:e,kind:t.kind,damage,splash:base.splash||0,speed:t.kind==='ballista'?245:360})}}}
-for(const s of shots){if(s.dead)continue;if(s.target.dead){s.dead=true;continue}const p=at(s.target.progress);const dx=p.x-s.x,dy=p.y-11-s.y,dist=Math.hypot(dx,dy);if(dist<Math.max(10,s.speed*dt)){s.dead=true;hurt(s.target,s.damage);if(s.splash){for(const other of enemies){if(other===s.target||other.dead)continue;const op=at(other.progress);if(Math.hypot(op.x-p.x,op.y-p.y)<s.splash)hurt(other,s.damage*.52)}}for(let k=0;k<(s.splash?10:3);k++)particles.push({x:p.x,y:p.y-10,vx:(Math.random()-.5)*75,vy:(Math.random()-.5)*75,life:.28,color:s.splash?'#ffae55':'#ffefac',size:s.splash?4:2})}else{s.x+=dx/dist*s.speed*dt;s.y+=dy/dist*s.speed*dt}}shots=shots.filter(s=>!s.dead);
-updateGuards(dt);for(const t of Object.values(towers))t.flash=Math.max(0,(t.flash||0)-dt);for(const p of particles){p.x+=p.vx*dt;p.y+=p.vy*dt;p.vy+=95*dt;p.life-=dt}particles=particles.filter(p=>p.life>0);
-if(active&&queue.length===0&&enemies.length===0&&!ended){active=false;gold+=35+wave*8;dirty=true;if(wave===10){endGame(true)}else{notify('Волна отбита! Бонус золота: '+(35+wave*8))}}if(dirty)renderStats()}
+function update(dt){
+ if(paused||ended)return;
+ time+=dt;let dirty=false;
+ if(active){spawnTimer+=dt;while(queue.length&&spawnTimer>=queue[0].at){spawn(queue.shift().kind);dirty=true}}
+ // Living guards move first; only a guard who physically reaches an enemy can block it.
+ updateGuards(dt);
+ for(const e of enemies){
+  if(e.dead)continue;
+  e.attackFlash=Math.max(0,e.attackFlash-dt);
+  const blocker=guards.find(g=>g.key===e.blocker&&g.hp>0&&g.engagedId===e.id);
+  if(blocker&&Math.hypot(at(e.progress).x-blocker.x,at(e.progress).y-blocker.y)<21){
+   stats.blockedSeconds+=dt;
+   e.attackTimer-=dt;
+   if(e.attackTimer<=0){
+    const attack=ENEMY_MELEE[e.kind];e.attackTimer=attack.rate;
+    blocker.hp=Math.max(0,blocker.hp-attack.damage);
+    blocker.hit=.34;e.attackFlash=.29;stats.guardHits++;
+    particles.push({x:blocker.x,y:blocker.y-14,vx:(Math.random()-.5)*27,vy:-28,life:.27,color:'#f9dd9a',size:3.6});
+    if(blocker.hp<=0){
+     blocker.respawn=respawnSeconds(towers[blocker.siteId].level);
+     blocker.engagedId=null;blocker.targetId=null;e.blocker=null;
+     stats.guardDeaths++;
+     for(let i=0;i<5;i++)particles.push({x:blocker.x,y:blocker.y-9,vx:(Math.random()-.5)*48,vy:-Math.random()*50,life:.37,color:'#a6a9a1',size:2.5});
+    }
+   }
+  }else{
+   e.blocker=null;
+   const factor=e.slow>0?.48:1;
+   e.progress+=EN[e.kind].speed*dt*factor;
+  }
+  e.slow=Math.max(0,e.slow-dt);
+  if(e.progress>=totalDist){
+   e.dead=true;lives=Math.max(0,lives-EN[e.kind].life);dirty=true;
+   const p=route[route.length-2];for(let j=0;j<10;j++)particles.push({x:p.x,y:p.y-10,vx:(Math.random()-.5)*95,vy:-Math.random()*65,life:.5,color:'#b55439',size:3});
+   if(lives<=0){endGame(false);break}
+  }
+ }
+ enemies=enemies.filter(e=>!e.dead);
+ if(!ended){
+  for(const key in towers){
+   const t=towers[key],site=sites[Number(key)];t.cool-=dt;if(t.cool>0)continue;
+   let e=null,striker=null;
+   if(t.kind==='barracks'){
+    // The original barracks damage/rate is applied once per tower attack, NEVER per soldier.
+    // No free off-screen damage: it requires an alive soldier in actual melee contact.
+    const melee=guards.filter(g=>{if(g.siteId!==Number(key)||g.hp<=0||g.engagedId===null)return false;const foe=enemies.find(x=>x.id===g.engagedId&&!x.dead);if(!foe)return false;const q=at(foe.progress);return Math.hypot(g.x-q.x,g.y-q.y)<22;});
+    for(const g of melee){const candidate=enemies.find(x=>x.id===g.engagedId&&!x.dead);if(candidate&&(!e||candidate.progress>e.progress)){e=candidate;striker=g}}
+   }else e=nearestTowerTarget(t,site);
+   if(!e)continue;
+   const base=T[t.kind],p=tile(site.c,site.r);
+   t.cool=base.rate/Math.pow(1.13,t.level-1);t.flash=.22;
+   const damage=base.damage*(1+(t.level-1)*.65);
+   if(t.kind==='barracks'){
+    e.slow=1.15;hurt(e,damage);markGuardStrike(striker,e);
+    particles.push({x:at(e.progress).x,y:at(e.progress).y-14,vx:0,vy:-22,life:.35,color:'#f3e1ad',size:5});
+   }else{
+    shots.push({x:p.x,y:p.y-27,target:e,kind:t.kind,damage,splash:base.splash||0,speed:t.kind==='ballista'?245:360});
+   }
+  }
+ }
+ for(const s of shots){if(s.dead)continue;if(s.target.dead){s.dead=true;continue}const p=at(s.target.progress);const dx=p.x-s.x,dy=p.y-11-s.y,dist=Math.hypot(dx,dy);if(dist<Math.max(10,s.speed*dt)){s.dead=true;hurt(s.target,s.damage);if(s.splash){for(const other of enemies){if(other===s.target||other.dead)continue;const op=at(other.progress);if(Math.hypot(op.x-p.x,op.y-p.y)<s.splash)hurt(other,s.damage*.52)}}for(let k=0;k<(s.splash?10:3);k++)particles.push({x:p.x,y:p.y-10,vx:(Math.random()-.5)*75,vy:(Math.random()-.5)*75,life:.28,color:s.splash?'#ffae55':'#ffefac',size:s.splash?4:2})}else{s.x+=dx/dist*s.speed*dt;s.y+=dy/dist*s.speed*dt}}
+ shots=shots.filter(s=>!s.dead);
+ for(const t of Object.values(towers))t.flash=Math.max(0,(t.flash||0)-dt);
+ for(const p of particles){p.x+=p.vx*dt;p.y+=p.vy*dt;p.vy+=95*dt;p.life-=dt}
+ particles=particles.filter(p=>p.life>0);
+ if(active&&queue.length===0&&enemies.length===0&&!ended){
+  active=false;gold+=35+wave*8;dirty=true;
+  // Re-form the garrison between assaults; no cost or new spending.
+  for(const g of guards){g.hp=g.maxHp;g.respawn=0;g.engagedId=null;g.targetId=null;}
+  if(wave===10)endGame(true);else notify('Волна отбита! Бонус золота: '+(35+wave*8));
+ }
+ if(dirty)renderStats();else if(chosenSite>=0&&towers[chosenSite]&&towers[chosenSite].kind==='barracks'&&time>nextHud){nextHud=time+.7;updateInfo();}
+}
 function endGame(won){ended=true;active=false;paused=false;$('modalIcon').textContent=won?'🏆':'🏚️';$('modalTitle').textContent=won?'Крепость выстояла!':'Крепость пала';$('modalText').innerHTML=won?'Ты отбил все 10 волн и защитил пустынный перевал.<br><b>Осталось жизней: '+lives+'</b> · Золото: '+gold:'Волна '+wave+' прорвала оборону. Перестрой башни, улучшай ключевые позиции и попробуй ещё раз.';$('overlay').classList.add('show');renderStats()}
-function reset(){gold=250;lives=20;wave=0;active=false;ended=false;paused=false;speed=1;chosenKind=null;chosenSite=-1;towers={};enemies=[];shots=[];particles=[];guards=[];queue=[];spawnTimer=0;time=0;nextId=1;$('overlay').classList.remove('show');renderStats();notify('Построй первые башни и начни бой!')}
-// Animated garrison. Barracks damage, rate and slowing remain identical to v0.3.
-// Guards are animated representations of the existing barracks attacks; they
-// introduce no extra damage, resources or obstacle collisions.
+function reset(){gold=250;lives=20;wave=0;active=false;ended=false;paused=false;speed=1;chosenKind=null;chosenSite=-1;towers={};enemies=[];shots=[];particles=[];guards=[];queue=[];spawnTimer=0;time=0;nextId=1;stats={blockedSeconds:0,guardDeaths:0,respawns:0,guardHits:0};$('overlay').classList.remove('show');renderStats();notify('Построй первые башни и начни бой!')}
+// Real, contact-based melee combat. Tower damage, cost, wave HP and rewards
+// retain the v0.4 values; only a living soldier can block and strike an enemy.
+const ENEMY_MELEE={raider:{damage:12,rate:1.1},shield:{damage:18,rate:1.18},rider:{damage:23,rate:.94},siege:{damage:39,rate:1.55},boss:{damage:46,rate:1.12}};
+const guardMaxHp=level=>42+15*(level-1);
+const respawnSeconds=level=>Math.max(6,11-2*(level-1));
 function guardRally(site){
  const pad=tile(site.c,site.r);let best=pad,dist=Infinity;
  for(let i=0;i<route.length-1;i++){
@@ -65,48 +136,65 @@ function guardRally(site){
   const q={x:a.x+vx*t,y:a.y+vy*t},d=Math.hypot(q.x-pad.x,q.y-pad.y);
   if(d<dist){dist=d;best=q}
  }
- return {x:pad.x+(best.x-pad.x)*.73,y:pad.y+(best.y-pad.y)*.73};
+ return {x:pad.x+(best.x-pad.x)*.88,y:pad.y+(best.y-pad.y)*.88};
 }
 function ensureGuards(){
  const keep=new Set();
  for(const [siteId,t] of Object.entries(towers)){
   if(t.kind!=='barracks')continue;
-  const rally=guardRally(sites[Number(siteId)]),pad=tile(sites[Number(siteId)].c,sites[Number(siteId)].r);
+  const id=Number(siteId),rally=guardRally(sites[id]),pad=tile(sites[id].c,sites[id].r);
   for(let slot=0;slot<Math.min(4,t.level+1);slot++){
    const key=siteId+':'+slot;keep.add(key);
-   if(!guards.some(g=>g.key===key))guards.push({key,siteId:Number(siteId),slot,x:pad.x+(slot-.5)*5,y:pad.y+5,homeX:rally.x,homeY:rally.y,target:null,attack:0,step:slot*2,walking:true,facing:1});
+   const found=guards.find(g=>g.key===key);
+   if(found){const old=found.maxHp;found.maxHp=guardMaxHp(t.level);if(found.hp>0)found.hp=Math.min(found.maxHp,found.hp+found.maxHp-old);found.homeX=rally.x;found.homeY=rally.y;continue;}
+   guards.push({key,siteId:id,slot,x:pad.x+(slot-.5)*5,y:pad.y+5,homeX:rally.x,homeY:rally.y,targetId:null,engagedId:null,attack:0,hit:0,step:slot*2,walking:true,facing:1,hp:guardMaxHp(t.level),maxHp:guardMaxHp(t.level),respawn:0});
   }
  }
  guards=guards.filter(g=>keep.has(g.key));
 }
 function updateGuards(dt){
  if(!guards.length)return;
- const bySite=new Map();
- for(const g of guards){if(!bySite.has(g.siteId))bySite.set(g.siteId,nearestTowerTarget(towers[g.siteId],sites[g.siteId]));}
+ const taken=new Set();
+ // Keep existing engagements stable, otherwise choose a distinct incoming foe.
  for(const g of guards){
-  const tower=towers[g.siteId];if(!tower)continue;
-  const target=bySite.get(g.siteId),p=target?at(target.progress):null;
-  const angle=g.slot*2.399963;
-  const offset=target?{x:Math.cos(angle)*14,y:Math.sin(angle)*8}:{x:Math.cos(angle)*14,y:Math.sin(angle)*8};
-  const dest=p?{x:p.x+offset.x,y:p.y+offset.y}:{x:g.homeX+offset.x,y:g.homeY+offset.y};
+  if(g.hp<=0){g.respawn=Math.max(0,g.respawn-dt);g.engagedId=null;g.targetId=null;if(!g.respawn){const pad=tile(sites[g.siteId].c,sites[g.siteId].r);g.hp=g.maxHp;g.x=pad.x;g.y=pad.y;stats.respawns++;particles.push({x:g.x,y:g.y-10,vx:0,vy:-42,life:.55,color:'#f5e2ae',size:6});}continue}
+  g.attack=Math.max(0,g.attack-dt);g.hit=Math.max(0,g.hit-dt);
+  const t=towers[g.siteId];if(!t)continue;
+  const pad=tile(sites[g.siteId].c,sites[g.siteId].r);
+  const range=T.barracks.range+(t.level-1)*15;
+  let e=enemies.find(x=>x.id===g.targetId&&!x.dead);
+  if(e){const q=at(e.progress);if(taken.has(e.id)||Math.hypot(q.x-pad.x,q.y-pad.y)>range+7)e=null}
+  if(!e){
+   const choices=enemies.filter(x=>!x.dead&&!taken.has(x.id)&&Math.hypot(at(x.progress).x-pad.x,at(x.progress).y-pad.y)<range);
+   choices.sort((a,b)=>{
+    const pa=at(a.progress),pb=at(b.progress);
+    const da=Math.hypot(pa.x-g.x,pa.y-g.y),db=Math.hypot(pb.x-g.x,pb.y-g.y);
+    return (da-db)||b.progress-a.progress;
+   });
+   e=choices[0]||null;
+  }
+  g.targetId=e?e.id:null;
+  if(e)taken.add(e.id);
+  const q=e?at(e.progress):null;
+  const offsetX=e?(g.slot%2?-6:6):Math.cos(g.slot*2.4)*14;
+  const offsetY=e?5:Math.sin(g.slot*2.4)*6;
+  const dest=q?{x:q.x+offsetX,y:q.y+offsetY}:{x:g.homeX+offsetX,y:g.homeY+offsetY};
   const dx=dest.x-g.x,dy=dest.y-g.y,dist=Math.hypot(dx,dy);
-  const step=Math.min(dist,(102+tower.level*16)*dt);
+  const step=Math.min(dist,(123+t.level*13)*dt);
   if(dist>.3){g.x+=dx/dist*step;g.y+=dy/dist*step;g.facing=dx>=0?1:-1}
   g.walking=dist>4;g.step+=dt*(g.walking?12:2.5);
-  g.target=target?target.id:null;
-  g.attack=Math.max(0,g.attack-dt);
+  const reach=e&&Math.hypot(g.x-q.x,g.y-q.y)<18;
+  if(reach){g.engagedId=e.id;e.blocker=g.key}else g.engagedId=null;
  }
 }
-function markGuardStrike(siteId,enemy){
- const pack=guards.filter(g=>g.siteId===siteId);
- if(!pack.length)return;
- // Cycle striking soldiers at the same cadence as the original barracks tower.
- const tower=towers[siteId];tower.strikeIndex=(tower.strikeIndex||0)+1;
- const g=pack[tower.strikeIndex%pack.length];g.target=enemy.id;g.attack=.3;
+function markGuardStrike(guard,enemy){
+ if(!guard||guard.hp<=0)return;
+ guard.attack=.3;
  const p=at(enemy.progress);
  for(let i=0;i<3;i++)particles.push({x:p.x+(Math.random()-.5)*13,y:p.y-12,vx:(Math.random()-.5)*38,vy:-20-Math.random()*40,life:.25,color:i%2?'#faf0bd':'#cdd6db',size:1.5+Math.random()*1.3});
 }
 function drawGuard(g){
+ if(g.hp<=0)return;
  const bob=g.walking?Math.sin(g.step)*1.65:Math.sin(g.step)*.25;
  const foot=Math.sin(g.step)*3.6;
  const swing=g.attack>0?Math.sin((.3-g.attack)/.3*Math.PI):0;
@@ -126,6 +214,9 @@ function drawGuard(g){
  line(0,1,6,-3,'#b89a73',2.4);line(6,-3,11,-15,'#d5dbd2',2.5);
  line(6,-3,12,-3,'#665241',1.6);ctx.restore();
  if(swing>.4){ctx.beginPath();ctx.arc(5,-14,14,-.8,.4);ctx.strokeStyle='#fff1b2a9';ctx.lineWidth=1.7;ctx.stroke()}
+ if(g.hit>0){ellipse(0,-12,11,17,'#ffffff3b');}
+ // Compact HP bar for every soldier. Red = wounded, green = healthy.
+ rect(-9,-32,18,3,'#473329');rect(-9,-32,18*clamp(g.hp/g.maxHp,0,1),3,g.hp/g.maxHp>.45?'#b5d47d':'#e6a169');
  ctx.restore();
 }
 function polygon(pts,fill,stroke,width=1){ctx.beginPath();ctx.moveTo(pts[0][0],pts[0][1]);for(let i=1;i<pts.length;i++)ctx.lineTo(pts[i][0],pts[i][1]);ctx.closePath();if(fill){ctx.fillStyle=fill;ctx.fill()}if(stroke){ctx.lineWidth=width;ctx.strokeStyle=stroke;ctx.stroke()}}
@@ -318,10 +409,11 @@ function drawEnemy(e){
   rect(p.x-15,p.y-s-27,30*clamp(e.hp/e.maxHp,0,1),4,'#b7d579');
  }
  if(e.slow>0){ellipse(p.x,p.y+7,s+8,5,null,'#d4d9ac',1.7)}
+ if(e.attackFlash>0){ctx.beginPath();ctx.arc(p.x+5,p.y-12,12,-.8,.5);ctx.strokeStyle='#fff4bead';ctx.lineWidth=2;ctx.stroke()}
 }
-function drawSitesAndTowers(){for(let i=0;i<sites.length;i++){const s=sites[i],p=tile(s.c,s.r),tower=towers[i],highlight=chosenSite===i;if(tower){if(highlight){let radius=T[tower.kind].range+(tower.level-1)*15;ctx.beginPath();ctx.arc(p.x,p.y,radius,0,Math.PI*2);ctx.fillStyle='#dee7a312';ctx.fill();ctx.strokeStyle='#f1e6a580';ctx.lineWidth=1.3;ctx.stroke()}platform(p.x,p.y,highlight);if(tower.kind==='archer')timberTower(p.x,p.y,tower.level);if(tower.kind==='crossbow')stoneTower(p.x,p.y,tower.level);if(tower.kind==='ballista')ballista(p.x,p.y,tower.level);if(tower.kind==='barracks')barracks(p.x,p.y,tower.level);if(tower.flash>0&&tower.kind!=='barracks'){ellipse(p.x+9,p.y-42,3+tower.flash*11,2+tower.flash*7,'#fff2b6a6')}if(tower.level>=2){ctx.fillStyle='#ffe2a6';ctx.font='bold 13px Georgia';ctx.textAlign='center';ctx.fillText('★'.repeat(tower.level-1),p.x,p.y-62)}}else{const glow=chosenKind!==null;platform(p.x,p.y,glow);ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle=glow?'#3e462e':'#685942';ctx.font='bold 23px system-ui';ctx.fillText('+',p.x,p.y-3);if(glow){ctx.strokeStyle='#fff2ac88';ctx.lineWidth=1.4;ellipse(p.x,p.y-2,29+Math.sin(time*3)*2,16+Math.sin(time*3),null,'#e9da98aa',1.4)}}}}
+function drawSitesAndTowers(){for(let i=0;i<sites.length;i++){const s=sites[i],p=tile(s.c,s.r),tower=towers[i],highlight=chosenSite===i;if(tower){if(highlight){let radius=T[tower.kind].range+(tower.level-1)*15;ctx.beginPath();ctx.arc(p.x,p.y,radius,0,Math.PI*2);ctx.fillStyle='#dee7a312';ctx.fill();ctx.strokeStyle='#f1e6a580';ctx.lineWidth=1.3;ctx.stroke()}platform(p.x,p.y,highlight);if(tower.kind==='archer')timberTower(p.x,p.y,tower.level);if(tower.kind==='crossbow')stoneTower(p.x,p.y,tower.level);if(tower.kind==='ballista')ballista(p.x,p.y,tower.level);if(tower.kind==='barracks'){barracks(p.x,p.y,tower.level);const squad=guards.filter(g=>g.siteId===i);squad.forEach((g,n)=>{ellipse(p.x-19+n*11,p.y+17,4.2,3.5,g.hp>0?'#b3d58b':'#82554b','#483e2b',.8)});}if(tower.flash>0&&tower.kind!=='barracks'){ellipse(p.x+9,p.y-42,3+tower.flash*11,2+tower.flash*7,'#fff2b6a6')}if(tower.level>=2){ctx.fillStyle='#ffe2a6';ctx.font='bold 13px Georgia';ctx.textAlign='center';ctx.fillText('★'.repeat(tower.level-1),p.x,p.y-62)}}else{const glow=chosenKind!==null;platform(p.x,p.y,glow);ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle=glow?'#3e462e':'#685942';ctx.font='bold 23px system-ui';ctx.fillText('+',p.x,p.y-3);if(glow){ctx.strokeStyle='#fff2ac88';ctx.lineWidth=1.4;ellipse(p.x,p.y-2,29+Math.sin(time*3)*2,16+Math.sin(time*3),null,'#e9da98aa',1.4)}}}}
 function drawFlag(x,y){line(x,y,x,y-34,'#65513b',2.5);polygon([[x,y-34],[x+20,y-29],[x,y-23]],'#9a382f');ellipse(x,y+3,5,4,'#705533')}
-function render(){ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,cssW,cssH);ctx.save();ctx.translate(cssW/2+panX,cssH/2+panY);ctx.scale(scale,scale);ctx.translate(-W/2,-H/2);drawBackground();ground();drawRoute();drawOasis();terrainProps();drawFlag(273,266);drawFlag(936,454);drawSitesAndTowers();let c=tile(14,6);castle(c.x+34,c.y-13);[...enemies.map(e=>({kind:'enemy',y:at(e.progress).y,item:e})),...guards.map(g=>({kind:'guard',y:g.y,item:g}))].sort((a,b)=>a.y-b.y).forEach(a=>a.kind==='enemy'?drawEnemy(a.item):drawGuard(a.item));for(let s of shots){const p=at(s.target.progress);if(s.kind==='ballista'){ellipse(s.x,s.y,5,5,'#ffcb77');line(s.x-7,s.y+5,s.x+5,s.y-6,'#874b30',3)}else{line(s.x-6,s.y+3,s.x+6,s.y-3,'#fff0ad',2.7)}}for(let p of particles){ctx.globalAlpha=clamp(p.life/.5,0,1);ellipse(p.x,p.y,p.size,p.size*.7,p.color);ctx.globalAlpha=1}ctx.restore()}
+function render(){ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,cssW,cssH);ctx.save();ctx.translate(cssW/2+panX,cssH/2+panY);ctx.scale(scale,scale);ctx.translate(-W/2,-H/2);drawBackground();ground();drawRoute();drawOasis();terrainProps();drawFlag(273,266);drawFlag(936,454);drawSitesAndTowers();let c=tile(14,6);castle(c.x+34,c.y-13);[...enemies.map(e=>({kind:'enemy',y:at(e.progress).y,item:e})),...guards.filter(g=>g.hp>0).map(g=>({kind:'guard',y:g.y,item:g}))].sort((a,b)=>a.y-b.y).forEach(a=>a.kind==='enemy'?drawEnemy(a.item):drawGuard(a.item));for(let s of shots){const p=at(s.target.progress);if(s.kind==='ballista'){ellipse(s.x,s.y,5,5,'#ffcb77');line(s.x-7,s.y+5,s.x+5,s.y-6,'#874b30',3)}else{line(s.x-6,s.y+3,s.x+6,s.y-3,'#fff0ad',2.7)}}for(let p of particles){ctx.globalAlpha=clamp(p.life/.5,0,1);ellipse(p.x,p.y,p.size,p.size*.7,p.color);ctx.globalAlpha=1}ctx.restore()}
 function refreshSize(){const r=cvs.getBoundingClientRect();cssW=Math.max(100,r.width);cssH=Math.max(100,r.height);dpr=Math.min(window.devicePixelRatio||1,2);cvs.width=Math.round(cssW*dpr);cvs.height=Math.round(cssH*dpr);scale=Math.min(cssW/W,cssH/H)*zoom}
 function adjustZoom(factor){zoom=clamp(zoom*factor,.7,2.8);scale=Math.min(cssW/W,cssH/H)*zoom;panX=clamp(panX,-cssW*.72,cssW*.72);panY=clamp(panY,-cssH*.7,cssH*.7)}
 function hit(evt){const r=cvs.getBoundingClientRect();let x=evt.clientX-r.left,y=evt.clientY-r.top;return {x:(x-cssW/2-panX)/scale+W/2,y:(y-cssH/2-panY)/scale+H/2}}
