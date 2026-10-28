@@ -4,18 +4,38 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#161c18" />
-<title>Crusader Defense — Первый рубеж</title>
+<title>Crusader Defense — Песчаный рубеж 0.7</title>
 <style>
 :root{--bg:#101914;--card:#202c25;--line:#465542;--gold:#f5d38b;--cream:#fff0c9;--muted:#b8c6af;--accent:#bcd18b;--warn:#eeb07a;--red:#e88d72}*{box-sizing:border-box}
 html,body{margin:0;min-height:100%;background:radial-gradient(circle at 50% -10%,#35483a 0%,#171f19 52%,#0b110d 100%);color:#eee8d4;font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif}body{padding:12px max(12px,env(safe-area-inset-right)) calc(20px + env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}button{font:inherit;touch-action:manipulation;cursor:pointer}button:focus-visible{outline:3px solid #ffe39f;outline-offset:2px}#app{max-width:1250px;margin:0 auto}.header{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}.brand{display:flex;align-items:center;gap:12px}.crest{width:48px;height:48px;display:grid;place-items:center;font-size:29px;background:linear-gradient(145deg,#7f4438,#372c27);border:2px solid #ba9b60;clip-path:polygon(15% 0,85% 0,100% 17%,100% 70%,50% 100%,0 70%,0 17%)}.eyebrow{font-size:10px;letter-spacing:2.4px;color:var(--gold);font-weight:800}.brand h1{font-family:Georgia,serif;font-size:clamp(21px,3.2vw,32px);margin:1px 0;letter-spacing:.4px}.brand .small{font-size:11px;color:#bbc5b3}.statline{display:flex;gap:7px;flex-wrap:wrap}.stat{border:1px solid #5c6349;background:linear-gradient(#29362c,#1b261f);padding:9px 12px;border-radius:9px;min-width:84px;text-align:center;box-shadow:0 3px 10px #0003}.stat .label{font-size:10px;letter-spacing:.6px;text-transform:uppercase;color:#b7bfa8}.stat .value{font-weight:800;font-size:20px;font-variant-numeric:tabular-nums;line-height:1.2;margin-top:3px}.stat:nth-child(1) .value{color:#ffdb85}.stat:nth-child(2) .value{color:#f3a28b}.stat:nth-child(3) .value{color:#cee4a3}.board-wrap{position:relative;background:linear-gradient(165deg,#d5bc80,#bb975a);border:5px solid #514536;border-radius:12px;box-shadow:inset 0 0 0 1px #e2cf9e,0 22px 45px #0006;overflow:hidden;isolation:isolate}canvas{display:block;width:100%;height:clamp(380px,57vh,690px);touch-action:none;cursor:grab}canvas.grabbing{cursor:grabbing}.canvas-label{position:absolute;top:12px;left:12px;pointer-events:none;font-family:Georgia,serif;font-size:16px;letter-spacing:.8px;color:#463a25;text-shadow:0 1px #f2d99d;font-weight:700}.canvas-label small{font-size:10px;display:block;font-family:system-ui;letter-spacing:1.7px;font-weight:750}.zoom{position:absolute;right:12px;top:12px;display:flex;flex-direction:column;gap:6px}.zoom button{background:#29352ddb;border:1px solid #a9a282;color:#f4e5c1;width:37px;height:37px;border-radius:8px;font-size:23px;font-weight:700;line-height:1}.map-help{position:absolute;bottom:10px;left:10px;right:10px;display:flex;justify-content:space-between;gap:6px;pointer-events:none;font-size:11px;font-weight:650;color:#fff5d8;text-shadow:0 1px 2px #271a0f}.map-help span{background:#354033b8;padding:6px 9px;border-radius:8px}.bottom{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:12px;margin-top:12px}.panel{background:linear-gradient(135deg,#29362c,#1b2721);border:1px solid #485941;border-radius:12px;box-shadow:0 9px 24px #0003;padding:12px}.panel h2{font-size:13px;margin:0 0 9px;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px}.tower-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.tower{background:linear-gradient(#334538,#26352c);border:1px solid #5a704f;border-radius:8px;color:#efe7d3;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:3px;min-height:116px;transition:transform .12s,border-color .12s}.tower:active{transform:scale(.98)}.tower.active{border:2px solid #f9d78b;background:linear-gradient(#596546,#354532);padding:9px 5px;box-shadow:inset 0 0 15px #ffcd6022}.tower.unaffordable{opacity:.52}.tower .emoji{font-size:27px;line-height:1.15}.tower strong{font-size:12px}.tower .cost{color:var(--gold);font-weight:800;font-size:12px}.tower .note{font-size:10px;color:#bdc9b8;text-align:center}.action-panel{display:flex;flex-direction:column;gap:8px}.actions{display:flex;gap:7px}.primary{background:linear-gradient(#f2d18b,#c9a157);color:#302715;border:1px solid #f9e2a7;font-weight:850;padding:10px 11px;border-radius:8px;flex:1;box-shadow:inset 0 1px 1px #fff5}.primary:disabled{background:#5e6351;color:#c5c9b4;border-color:#69715a;box-shadow:none;cursor:not-allowed}.secondary{background:#3c4a3a;color:#f5efde;border:1px solid #697a5f;border-radius:8px;min-width:45px;font-weight:750;padding:8px}.secondary.active{background:#755c38;color:#ffeac0;border-color:#deb875}.info{font-size:12px;line-height:1.5;color:#d2d9c5;border:1px solid #54664f;border-radius:8px;padding:10px;min-height:75px;background:#0e1b1590}.info strong{color:#ffe0a0}.selected-actions{display:flex;gap:8px}.selected-actions button{flex:1;font-size:12px}.selected-actions button:disabled{opacity:.42;cursor:not-allowed}.status{color:#d9e0c9;font-size:11px;text-align:center;min-height:14px}.foot{font-size:11px;color:#a9b6a3;margin:9px 2px;text-align:center}.toast{position:absolute;top:54px;left:50%;transform:translateX(-50%);background:#263728ee;color:#fff3c9;border:1px solid #c4a56e;border-radius:8px;padding:10px 18px;pointer-events:none;font-weight:750;font-size:13px;text-align:center;opacity:0;transition:opacity .22s;white-space:nowrap;max-width:90%;overflow:hidden;text-overflow:ellipsis}.toast.show{opacity:1}.overlay{position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:#09100bc7;z-index:5;padding:14px}.overlay.show{display:flex}.modal{max-width:430px;width:100%;padding:29px;text-align:center;background:linear-gradient(145deg,#354331,#18231c);border:2px solid #c9a365;border-radius:15px;box-shadow:0 22px 70px #000b}.modal .icon{font-size:49px}.modal h2{font:700 31px Georgia,serif;color:#ffdf9b;margin:10px}.modal p{font-size:14px;line-height:1.65;color:#e6ead9}.modal button{min-width:200px;font-size:15px}.hide{display:none!important}.commandbar{margin:11px 0 0;display:grid;grid-template-columns:1.15fr 1.15fr 1fr;gap:8px}.war-command{background:linear-gradient(140deg,#39493b,#25362a);border:1px solid #7e845b;color:#f1e4ca;border-radius:10px;min-height:46px;padding:9px 6px;font-weight:750;font-size:12px}.war-command:disabled{opacity:.49;cursor:not-allowed}.war-command.active{background:#765b33;border-color:#fbd694;color:#fff3c8;box-shadow:inset 0 0 0 1px #fbd69455}.command-hint{font-size:11px;color:#c7d2b9;min-height:19px;margin:5px 5px 1px}.save-pill{align-self:center;text-align:center;flex:1;font-size:10px;color:#afc8a7}.command-prompt{color:#ffe09a;font-weight:750}
 @media(max-width:800px){body{padding:8px 7px 15px}.brand h1{font-size:22px}.brand .small{font-size:10px}.crest{width:40px;height:40px}.stat{min-width:72px;padding:7px 9px}.stat .value{font-size:17px}.stat .label{font-size:9px}.bottom{grid-template-columns:1fr}.action-panel{display:grid;grid-template-columns:1fr;gap:8px}.tower{min-height:101px;padding:7px 2px}.tower.active{padding:6px 1px}.tower .emoji{font-size:23px}.tower strong{font-size:11px}.tower .note{font-size:9px}.panel{padding:10px}canvas{height:clamp(330px,53vh,510px)}.map-help{font-size:10px}}
 @media(max-width:520px){.war-command{font-size:10px;min-height:43px;padding:7px 3px}.commandbar{gap:5px}.command-hint{font-size:10px}.header{justify-content:center}.statline{width:100%;display:grid;grid-template-columns:repeat(3,1fr)}.stat{min-width:0}.board-wrap{border-width:3px}.canvas-label{font-size:13px;top:10px;left:8px}.canvas-label small{font-size:9px}.zoom{right:8px;top:8px}.zoom button{width:32px;height:32px}canvas{height:min(45vh,390px);min-height:320px}.map-help span{font-size:9px;padding:5px}.tower .note{display:none}.tower{min-height:79px}.tower .emoji{font-size:24px}.tower strong{font-size:10px}.tower .cost{font-size:11px}.brand .small{display:none}}
 @media(orientation:landscape) and (max-height:510px){canvas{height:78vh}.header{margin-bottom:5px}.brand h1{font-size:20px}.stat{padding:4px 8px}.stat .value{font-size:16px}.crest{width:36px;height:36px}}
+
+/* v0.7: sandstone and dark-forged-iron interface. All game controls remain identical. */
+:root{--bg:#161b17;--card:#24291f;--line:#6c6752;--gold:#f6d38a;--cream:#fff2d0;--muted:#c6c3ab;--accent:#e0ca91;--warn:#f0ab79;--red:#e58b74}
+html,body{background:radial-gradient(ellipse at 50% -22%,#564c36 0%,#29291f 39%,#151a16 70%,#0b100e 100%);color:#f7ecd5}
+.header{padding:9px 12px 11px;margin-bottom:12px;border-bottom:1px solid #96775066;background:linear-gradient(90deg,#1a201aa8,#342d21a0,#1a201aa8);border-radius:9px}
+.brand h1{font-family:Georgia,serif;color:#f7e6bc;letter-spacing:1.35px;text-shadow:0 2px 1px #130f0e,0 0 14px #ac874128}
+.eyebrow{color:#e7c28a;letter-spacing:2.7px}.brand .small{color:#d2c2a0}
+.crest{border:2px solid #e8bc68;background:linear-gradient(135deg,#82513e,#361e1c);box-shadow:inset 0 0 0 2px #4e3223,0 4px 15px #0007}
+.stat{background:linear-gradient(145deg,#373b2c,#20241e);border:1px solid #897854;box-shadow:inset 0 1px #c5ac7440,0 4px 13px #0005}
+.stat .label{color:#d5c3a0}.board-wrap{border:7px solid #766146;border-radius:14px;background:#bc955e;box-shadow:0 0 0 2px #30281d,inset 0 0 0 2px #e0b873,0 18px 50px #0009}
+.board-wrap::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 26px #4c2b145d;z-index:1}
+.canvas-label{top:14px;left:17px;background:#372a1eb0;display:inline-block;border:1px solid #e0bf77a5;color:#fff0cd;text-shadow:0 1px #2c1d12;padding:7px 11px;font-size:14px;letter-spacing:1.2px;box-shadow:0 4px 15px #2e1e1670}
+.canvas-label small{color:#f0ca8b;font-size:9px}.zoom button{border:1px solid #a88b56;color:#f9e9c1;background:linear-gradient(#504431e8,#292a25e8);box-shadow:0 3px 9px #34251d7d}
+.map-help span{background:#302b22d9;border:1px solid #b69c675c;color:#f4e9c9}.panel{background:linear-gradient(150deg,#353627,#1e2922 75%);border:1px solid #87734f;box-shadow:inset 0 1px 0 #baa27640,0 9px 23px #0005}
+.panel h2{color:#f4cf8c}.tower{background:linear-gradient(160deg,#4b4c35,#29362e);border:1px solid #8f805a;box-shadow:inset 0 1px 0 #e3c38c3a,0 2px 7px #0004}
+.tower.active{border-color:#ffdd82;background:linear-gradient(160deg,#706341,#42482e);box-shadow:0 0 0 1px #ffe39c7d,inset 0 0 18px #ffe39020}
+.tower .emoji{filter:drop-shadow(0 3px 1px #17231980)}.tower .cost{color:#ffdc90}.primary{background:linear-gradient(#ffe0a0,#c99a4e);border-color:#f7d895;color:#392817;box-shadow:inset 0 1px 1px #fff8dc,0 3px 9px #0005}
+.secondary,.war-command{background:linear-gradient(#444939,#2b342d);color:#f6eacf;border:1px solid #8a825d;box-shadow:inset 0 1px #f0deaa26}.war-command.active,.secondary.active{border-color:#ffe39b;background:linear-gradient(#79623f,#494b36)}
+.info{background:#121d17b9;border-color:#786c4d;color:#e0ddc9}.modal{background:linear-gradient(150deg,#4c4932,#1b2821);border:3px double #e8be72}.modal h2{color:#ffe3a8}.command-hint{color:#e0d0ac}.foot{color:#d1c19c}
+@media(max-width:520px){.header{padding:6px 5px 9px}.brand h1{font-size:19px;letter-spacing:.3px}.eyebrow{font-size:9px;letter-spacing:1.4px}.board-wrap{border-width:4px}.canvas-label{top:7px;left:7px;font-size:11px;padding:5px 7px}.canvas-label small{font-size:8px}.map-help{bottom:7px;left:6px;right:6px}}
 </style>
 </head>
 <body>
 <div id="app">
-<header class="header"><div class="brand"><div class="crest">⚔</div><div><div class="eyebrow">ПЕРВАЯ ИГРА • ПРОТОТИП 0.6</div><h1>CRUSADER DEFENSE</h1><div class="small">Первый рубеж · Приказы, способности и живая пустыня</div></div></div><div class="statline"><div class="stat"><div class="label">🪙 Золото</div><div id="gold" class="value">250</div></div><div class="stat"><div class="label">❤ Крепость</div><div id="lives" class="value">20</div></div><div class="stat"><div class="label">⚑ Волна</div><div id="wave" class="value">0 / 10</div></div></div></header>
+<header class="header"><div class="brand"><div class="crest">⚔</div><div><div class="eyebrow">ГЛАВА I · ВИЗУАЛЬНОЕ ОБНОВЛЕНИЕ 0.7</div><h1>CRUSADER DEFENSE</h1><div class="small">Песчаный рубеж · Крепость у оазиса</div></div></div><div class="statline"><div class="stat"><div class="label">🪙 Золото</div><div id="gold" class="value">250</div></div><div class="stat"><div class="label">❤ Крепость</div><div id="lives" class="value">20</div></div><div class="stat"><div class="label">⚑ Волна</div><div id="wave" class="value">0 / 10</div></div></div></header>
 <section class="board-wrap" aria-label="Игровое поле"><canvas id="game" role="img" aria-label="Изометрическая пустынная карта. Нажимайте на круглые фундаменты для размещения башен"></canvas><div class="canvas-label"><small>ГЛАВА I</small>ПУСТЫННЫЙ ПЕРЕВАЛ</div><div class="zoom"><button id="zoomIn" title="Приблизить карту" aria-label="Приблизить карту">+</button><button id="zoomOut" title="Отдалить карту" aria-label="Отдалить карту">−</button><button id="zoomReset" title="Показать карту целиком" aria-label="Показать карту целиком" style="font-size:15px">⌗</button></div><div class="map-help"><span>👆 Башня → площадка · 📍 Приказы гарнизону</span><span>✋ Проведи для перемещения карты</span></div><div id="toast" class="toast" aria-live="polite"></div><div id="overlay" class="overlay"><div class="modal"><div id="modalIcon" class="icon">🏰</div><h2 id="modalTitle">Победа!</h2><p id="modalText"></p><button class="primary" id="again">Играть снова</button></div></div></section>
 <section class="commandbar" aria-label="Боевые приказы">
  <button id="volley" class="war-command" title="Во время волны выбери точку для залпа стрел">🏹 Залп · 65 🪙</button>
@@ -26,7 +46,7 @@ html,body{margin:0;min-height:100%;background:radial-gradient(circle at 50% -10%
 <div class="bottom"><div class="panel"><h2>⚒ Построить защиту</h2><div id="towerList" class="tower-list"><button class="tower" data-kind="archer"><span class="emoji">🏹</span><strong>Лучники</strong><span class="cost">🪙 70</span><span class="note">Быстрые стрелы</span></button><button class="tower" data-kind="crossbow"><span class="emoji">🛡️</span><strong>Арбалетчики</strong><span class="cost">🪙 110</span><span class="note">Мощный выстрел</span></button><button class="tower" data-kind="ballista"><span class="emoji">⚙️</span><strong>Баллиста</strong><span class="cost">🪙 160</span><span class="note">Урон по площади</span></button><button class="tower" data-kind="barracks"><span class="emoji">⚔️</span><strong>Казармы</strong><span class="cost">🪙 130</span><span class="note">Бойцы блокируют врагов</span></button></div></div><div class="panel action-panel"><div class="actions"><button class="primary" id="startWave">▶ Начать волну 1</button><button class="secondary" id="pause" title="Пауза">Ⅱ</button><button class="secondary" id="speed" title="Скорость игры">1×</button></div><div class="info" id="selectionInfo">Выбери башню снизу, затем нажми на <strong>круглое основание</strong> на карте. У тебя 250 золота для начала обороны.</div><div class="selected-actions"><button class="secondary" id="upgrade" disabled>⬆ Улучшить</button><button class="secondary" id="sell" disabled>🪙 Продать</button></div>
 <div class="selected-actions"><button class="secondary" id="rally" disabled>📍 Позиция отряда</button><button class="secondary" id="priority" disabled>🎯 Цель: первая</button></div>
 <div class="selected-actions"><button class="secondary" id="fresh" title="Сбросить текущую игру">↻ Новая игра</button><span class="save-pill" id="saveHint">💾 Автосохранение</span></div><div class="status" id="status">Подготовь защиту крепости к первой атаке.</div></div></div>
-<p class="foot">Версия 0.6 · Приказы гарнизону · Залпы · Автосохранение · 10 волн</p>
+<p class="foot">Версия 0.7 · Новый визуал · Приказы гарнизону · Автосохранение · 10 волн</p>
 </div>
 <script>
 (()=>{'use strict';
@@ -244,12 +264,23 @@ function line(x1,y1,x2,y2,color,width=1){ctx.beginPath();ctx.moveTo(x1,y1);ctx.l
 function ellipse(x,y,rx,ry,fill,stroke,width=1){ctx.beginPath();ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2);if(fill){ctx.fillStyle=fill;ctx.fill()}if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=width;ctx.stroke()}}
 function rect(x,y,w,h,fill){ctx.fillStyle=fill;ctx.fillRect(x,y,w,h)}
 function drawBackground(){
-  const sky=ctx.createLinearGradient(0,0,W,H);
-  sky.addColorStop(0,'#d8c294');sky.addColorStop(.55,'#bc9b64');sky.addColorStop(1,'#826949');
+  // The full battlefield is one continuous sandstone basin, not an isolated diamond on a flat backdrop.
+  const sky=ctx.createLinearGradient(0,25,W,H);
+  sky.addColorStop(0,'#f0d4a0');sky.addColorStop(.34,'#d7b67b');sky.addColorStop(.71,'#b9945d');sky.addColorStop(1,'#896d49');
   ctx.fillStyle=sky;ctx.fillRect(0,0,W,H);
-  // Soft ambient color outside the playable plateau.
-  for(let i=0;i<25;i++){const x=hash(i,21)*W,y=hash(i,22)*H;
-    ellipse(x,y,24+hash(i,23)*80,7+hash(i,24)*17,'#f2d9a11b');}
+  const sun=ctx.createRadialGradient(280,90,4,310,88,405);sun.addColorStop(0,'#fff0c76c');sun.addColorStop(1,'#fff0c700');ctx.fillStyle=sun;ctx.fillRect(0,0,750,500);
+  for(let i=0;i<28;i++){
+    const x=hash(i,143)*W,y=hash(i,144)*H,r=24+hash(i,145)*100;
+    ellipse(x,y,r,r*.22,i%2?'#9a7e4b2a':'#f6db9e35');
+  }
+  // Fine, seeded sand texture; deterministic for stable appearance between frames.
+  for(let i=0;i<850;i++){
+    const x=hash(i,161)*W,y=hash(i,162)*H;let rad=.45+hash(i,163)*1.6;
+    ellipse(x,y,rad,rad*.4,i%3?'#67492b22':'#fff0c63b');
+  }
+  // Distant eroded ridges at the edges of the battle map.
+  duneRidge(187,172,175,43,22);duneRidge(1042,157,163,40,23);
+  duneRidge(150,486,154,40,18);duneRidge(994,577,155,39,20);
 }
 function softDune(x,y,rx,ry,dark='#9a7747',light='#f2d49c'){
   ctx.save();ctx.translate(x,y);ctx.scale(rx,ry);
@@ -276,39 +307,43 @@ function duneRidge(x,y,rx,ry,height){
   ctx.strokeStyle='#7e654460';ctx.lineWidth=2.2;ctx.stroke();ctx.restore();
 }
 function ground(){
-  // The entire plateau is one continuous terrain surface — no tile borders or grid.
+  // Retains invisible diamond hit geometry; no painted tile edges or grid.
   const a=tile(0,0),b=tile(cols-1,0),c=tile(cols-1,rows-1),d=tile(0,rows-1);
   const outline=[[a.x,a.y-th/2],[b.x+tw/2,b.y],[c.x,c.y+th/2],[d.x-tw/2,d.y]];
-  ctx.save();ctx.beginPath();ctx.moveTo(outline[0][0],outline[0][1]);
-  for(let i=1;i<outline.length;i++)ctx.lineTo(outline[i][0],outline[i][1]);ctx.closePath();ctx.clip();
-  const sand=ctx.createLinearGradient(300,130,840,600);
-  sand.addColorStop(0,'#dfc38b');sand.addColorStop(.38,'#d6b77b');sand.addColorStop(.76,'#c9a56a');sand.addColorStop(1,'#b9925e');
-  ctx.fillStyle=sand;ctx.fillRect(0,0,W,H);
-  // Large, blended patches make the sand feel natural rather than tile-based.
-  for(const [x,y,rx,ry] of [[426,236,225,91],[762,294,220,86],[548,395,260,92],[920,419,180,88],[352,321,136,72],[649,490,240,68]]){
-    softDune(x,y,rx,ry);
+  ctx.save();ctx.beginPath();ctx.moveTo(outline[0][0],outline[0][1]);for(let i=1;i<outline.length;i++)ctx.lineTo(outline[i][0],outline[i][1]);ctx.closePath();ctx.clip();
+  const sand=ctx.createLinearGradient(280,160,905,510);sand.addColorStop(0,'#f0d59e');sand.addColorStop(.35,'#dfbc7c');sand.addColorStop(.76,'#caa46a');sand.addColorStop(1,'#af8859');ctx.fillStyle=sand;ctx.fillRect(0,0,W,H);
+  for(const [x,y,rx,ry] of [[435,214,160,76],[756,297,170,82],[440,398,146,66],[929,410,154,68],[588,460,168,43],[580,225,158,40]])softDune(x,y,rx,ry);
+  // Subtle terracing and directional sandy striations.
+  for(const [x,y,rx,ry,h] of [[400,190,104,24,18],[918,365,97,28,19],[446,432,104,26,14],[729,491,114,26,12]])duneRidge(x,y,rx,ry,h);
+  for(let i=0;i<140;i++){
+    const x=250+hash(i,171)*700,y=175+hash(i,172)*335;
+    const rx=2+hash(i,173)*13;
+    ellipse(x,y,rx,1.0+hash(i,174)*1.5,i%3?'#a47b4647':'#ffe1a04d');
   }
-  // Modest relief: sandstone cliffs and shallow sand ridges outside the route.
-  duneRidge(423,206,106,35,16);
-  duneRidge(938,353,105,31,15);
-  duneRidge(460,408,120,34,10);
-  duneRidge(694,501,142,29,11);
-  for(let i=0;i<34;i++){
-    let x=250+hash(i,33)*695,y=153+hash(i,34)*360;
-    const rx=17+hash(i,35)*38,ry=3+hash(i,36)*8;
-    ellipse(x,y,rx,ry,hash(i,37)>.5?'#f1d59b25':'#886a4330');
-  }
-  // Fine ground texture without any row/column outlines.
-  for(let i=0;i<210;i++){
-    const x=205+hash(i,62)*864,y=122+hash(i,63)*458;
-    ellipse(x,y,1+hash(i,64)*3,.7+hash(i,65)*1.3,i%3?'#8d714342':'#f7dca44b');
+  for(let i=0;i<280;i++){
+    const x=205+hash(i,175)*855,y=128+hash(i,176)*445;
+    ellipse(x,y,.55+hash(i,177)*1.35,.4+hash(i,178),i%2?'#8d693d44':'#fff1c34e');
   }
   ctx.restore();
-  polygon(outline,null,'#9a784a80',1.5);
+  // Just a soft natural terrain seam, not a tile outline.
+  polygon(outline,null,'#8a683636',.9);
 }
-function drawRoute(){// A connected soft-edged road stripe crossing the isometric tile centers.
-ctx.lineCap='round';ctx.lineJoin='round';for(const [col,w,color] of [[44,0,'#9e8058'],[37,0,'#bea379'],[29,0,'#c6af86']]){ctx.beginPath();route.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.strokeStyle=color;ctx.lineWidth=col;ctx.stroke()}
-ctx.setLineDash([4,22]);ctx.lineWidth=1.1;ctx.strokeStyle='#e8d0a459';ctx.stroke();ctx.setLineDash([]);ctx.lineCap='butt';for(let i=1;i<route.length-1;i++){let p=route[i];if(i%2===0){ellipse(p.x+8,p.y+9,3,1.4,'#e5ce9a88')}}}
+function drawRoute(){
+  ctx.save();ctx.lineCap='round';ctx.lineJoin='round';
+  // Dark shoulder, sand banks, compacted centre, then two wheel ruts.
+  for(const [w,color] of [[57,'#82643b5d'],[49,'#a5824f'],[41,'#e0bd83'],[32,'#cba875']]){
+    ctx.beginPath();route.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.strokeStyle=color;ctx.lineWidth=w;ctx.stroke();
+  }
+  for(let i=1;i<route.length;i++){
+    const a=route[i-1],b=route[i],dx=b.x-a.x,dy=b.y-a.y,len=Math.hypot(dx,dy),nx=-dy/len,ny=dx/len;
+    for(let k of [-10,10]){line(a.x+nx*k,a.y+ny*k,b.x+nx*k,b.y+ny*k,'#745b403d',2.2);}
+  }
+  ctx.setLineDash([6,13]);ctx.beginPath();route.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.strokeStyle='#fff0b841';ctx.lineWidth=1.6;ctx.stroke();ctx.setLineDash([]);
+  for(let i=1;i<route.length-1;i++){
+    const p=route[i];if(i%3===0){ellipse(p.x+17,p.y+16,3.5,1.5,'#98784f');ellipse(p.x-14,p.y-15,2.7,1.2,'#f5d99a');}
+  }
+  ctx.restore();
+}
 function cactus(x,y,n=1){ellipse(x+4,y+8,19,5,'#584e2e42');for(let i=0;i<n;i++){let xx=x+i*9;line(xx,y+6,xx-1,y-14-i*2,'#47664d',5);line(xx-1,y-5,xx-9,y-9,'#47664d',3.3);line(xx-9,y-9,xx-10,y-16,'#47664d',3)}}
 function palm(x,y,scale=1){ctx.save();ctx.translate(x,y);ctx.scale(scale,scale);ellipse(0,7,24,6,'#5b5a364e');line(0,3,-5,-38,'#6e593b',7);for(let i=0;i<7;i++){let a=(i/7)*Math.PI*2;line(-5,-38,-5+Math.cos(a)*29,-38+Math.sin(a)*14,'#486a48',4);line(-5+Math.cos(a)*18,-38+Math.sin(a)*9,-5+Math.cos(a)*32,-38+Math.sin(a)*15+9,'#547648',3)}ctx.restore()}
 function oasisPalm(x,y,k=1,lean=1){
@@ -331,33 +366,31 @@ function oasisPalm(x,y,k=1,lean=1){
   ellipse(lean*12,-45,5,4,'#5c6c36');ctx.restore();
 }
 function drawOasis(){
-  // The oasis is intentionally clear of the road and all construction pads.
-  const x=799,y=277;
-  softDune(x,y,137,73,'#5f7745','#e3c28a');
-  ellipse(x,y+7,111,39,'#8a995ba3');
-  ellipse(x,y+3,93,31,'#c9ad71');
-  ellipse(x,y+3,85,27,'#5f978c','#b8d3b0',2);
-  const water=ctx.createLinearGradient(x-50,y-20,x+65,y+22);
-  water.addColorStop(0,'#a8d5b8');water.addColorStop(.35,'#5daea2');water.addColorStop(.8,'#317e7d');water.addColorStop(1,'#275a66');
-  ellipse(x-1,y,77,23,water);
-  // Gentle ripples move but do not affect gameplay.
-  for(let i=0;i<5;i++){
-    const xx=x-48+i*24,yy=y-7+(i%3)*7;
-    const shift=Math.sin(time*.8+i*2.3)*2;
-    ctx.beginPath();ctx.ellipse(xx+shift,yy,10+i%2*4,2,0,-.2,Math.PI*.84);
-    ctx.strokeStyle='#ddf2ce8a';ctx.lineWidth=1.6;ctx.stroke();
-  }
-  for(const [px,py] of [[704,268],[723,310],[755,316],[864,316],[892,287]]){
-    for(let n=0;n<4;n++){
-      const tx=px+n*5-7,ty=py+(n%2)*2;
-      line(tx,ty,tx-3,ty-8,'#647c42',1.8);line(tx,ty,tx+3,ty-9,'#8e9c50',1.6);
-    }
-  }
-  for(const [px,py,k,lean] of [[733,261,.83,-1],[774,244,.71,1],[879,275,.84,1]])oasisPalm(px,py,k,lean);
-  for(const [px,py,rx,ry] of [[704,296,9,3],[886,306,11,4],[851,311,7,3]]){
-    ellipse(px,py+2,rx+2,ry+1,'#53654855');
-    polygon([[px-rx,py],[px-3,py-ry*2.7],[px+rx*.6,py-ry],[px+rx,py]],'#998a69','#76694f',1);
-  }
+ const x=799,y=277;
+ const fringe=ctx.createRadialGradient(x,y,31,x,y,148);fringe.addColorStop(0,'#6283477d');fringe.addColorStop(.67,'#9fa66d6a');fringe.addColorStop(1,'#a9a56400');
+ ctx.fillStyle=fringe;ctx.fillRect(x-150,y-90,300,190);
+ ellipse(x,y+13,117,44,'#80663c66');ellipse(x,y+4,112,39,'#8f9e68');ellipse(x,y+2,101,35,'#decd93');
+ const water=ctx.createLinearGradient(x-92,y-25,x+64,y+41);
+ water.addColorStop(0,'#9dd7c5');water.addColorStop(.3,'#3ca6a7');water.addColorStop(.6,'#176d7d');water.addColorStop(1,'#204b65');
+ ellipse(x,y-1,94,29,water,'#e7d5aa',2.3);
+ ellipse(x-11,y-8,58,9,'#d5fff033');
+ for(let i=0;i<8;i++){
+   const xx=x-70+i*20, yy=y-10+(i%3)*9, shift=Math.sin(time*.9+i*2.3)*4;
+   ctx.beginPath();ctx.ellipse(xx+shift,yy,5+i%3*4,1.5,-.05,0,Math.PI);
+   ctx.strokeStyle=i%3?'#c4f2e3ba':'#ffffff93';ctx.lineWidth=1.3;ctx.stroke();
+ }
+ // Water's edge: pebble and dense grassy reeds; all decorative only.
+ for(let i=0;i<56;i++){
+   const t=i*Math.PI*2/56, rr=102+(hash(i,211)-.5)*13,py=y+Math.sin(t)*37;
+   let px=x+Math.cos(t)*rr;
+   if(i%4===0){ellipse(px,py+3,5,2,'#79684993');}else{
+     line(px,py,px+Math.sin(i)*4,py-4-hash(i,212)*6,i%2?'#4f7542':'#77944f',1.4);
+   }
+ }
+ for(const [px,py,k,lean] of [[733,254,.94,-1],[766,236,.87,1],[888,272,.96,1],[851,320,.66,-1]])oasisPalm(px,py,k,lean);
+ for(const [px,py,rx,ry] of [[705,293,13,4],[883,304,12,5],[833,316,11,3],[713,255,8,3]]){
+    ellipse(px,py+4,rx+4,ry+2,'#4c443c77');polygon([[px-rx,py],[px-4,py-ry*3],[px+rx*.65,py-ry],[px+rx,py]],'#ac9672','#756a56',1.1);
+ }
 }
 function terrainProps(){
   // Sparse desert vegetation and stones; do not obscure the road, oasis, or tower pads.
@@ -372,7 +405,7 @@ function terrainProps(){
     else ellipse(x,y,3,1.8,'#96805675');
   }
 }
-function platform(x,y,glow=false){ellipse(x,y+3,25,13,'#705e40a0');ellipse(x,y,24,12,'#786c50','#e6d2a1',1.1);ellipse(x,y-2,19,9,glow?'#e1cc8e':'#ada085','#ddc89e',1.3);if(glow){ctx.strokeStyle='#ffe38f';ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(x,y-2,26,14,0,0,Math.PI*2);ctx.stroke()}}
+function platform(x,y,glow=false){ellipse(x,y+4,29,15,'#44331f8b');ellipse(x,y+2,25,13,'#8b7251','#e5d1a2',1.6);ellipse(x,y-3,20,10,glow?'#ead39a':'#bbab88','#e6d6b2',1.6);if(glow){ctx.strokeStyle='#ffe38f';ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(x,y-2,26,14,0,0,Math.PI*2);ctx.stroke()}}
 function timberTower(x,y,lvl){const elev=33+(lvl-1)*8;ellipse(x,y+6,27,10,'#5e50366b');for(let s of [-1,1]){line(x+s*15,y+1,x+s*13,y-elev+4,'#664832',6);line(x+s*15,y+1,x-s*12,y-elev+4,'#987247',1.5)}polygon([[x-22,y-elev+4],[x,y-elev-7],[x+22,y-elev+4],[x,y-elev+14]],'#ac8454','#644b34',2);polygon([[x-22,y-elev+4],[x,y-elev+14],[x,y-elev+22],[x-22,y-elev+11]],'#6e4a2e');polygon([[x+22,y-elev+4],[x,y-elev+14],[x,y-elev+22],[x+22,y-elev+11]],'#8b5e38');line(x,y-elev-7,x,y-elev-26,'#5d4736',2);polygon([[x,y-elev-26],[x+13,y-elev-22],[x,y-elev-16]],'#b64c36');ellipse(x,y-elev-8,5,5,'#efc78b');line(x,y-elev-4,x,y-elev+5,'#50694b',4);line(x-8,y-elev-1,x+8,y-elev-5,'#6e4927',2);ctx.beginPath();ctx.arc(x+8,y-elev+1,8,-1.3,1.1);ctx.strokeStyle='#533d2b';ctx.lineWidth=2;ctx.stroke();line(x+10,y-elev-6,x+12,y-elev+7,'#e0ca9e',1);if(lvl>=2)polygon([[x-22,y-elev+2],[x,y-elev-12],[x+22,y-elev+2],[x,y-elev+7]],null,'#f1d294',2)}
 function stoneTower(x,y,lvl){const h=39+(lvl-1)*10;ellipse(x,y+5,26,11,'#4c493b77');polygon([[x-19,y-5],[x,y+6],[x,y-h+7],[x-19,y-h-6]],'#6c7775','#4c5b5c',1);polygon([[x,y+6],[x+19,y-5],[x+19,y-h-6],[x,y-h+7]],'#99a3a0','#596867');polygon([[x-22,y-h-5],[x,y-h-16],[x+22,y-h-5],[x,y-h+7]],'#b6b2a1','#596d67',1.5);for(let i=-1;i<=1;i++){rect(x-20+i*13,y-h-17-(i%2)*2,7,8,'#a7ada6');rect(x+3+i*11,y-h-14,7,7,'#758580')}line(x,y-h-15,x,y-h-30,'#4c4b38',2);polygon([[x,y-h-30],[x+15,y-h-25],[x,y-h-19]],'#447a6b');if(lvl>=2)rect(x-4,y-h+1,9,3,'#f4e1ad')}
 function ballista(x,y,lvl){ellipse(x,y+3,26,12,'#5c472d6b');polygon([[x-19,y-5],[x,y-15],[x+20,y-5],[x,y+5]],'#7f674a','#61492f',2);line(x-8,y-9,x-8,y-22,'#614b33',4);line(x+7,y-9,x+7,y-22,'#614b33',4);line(x-22,y-29,x,y-39,'#754a2c',6);line(x,y-39,x+22,y-28,'#754a2c',6);line(x-22,y-29,x+22,y-28,'#d8bf86',1.8);line(x,y-32,x+1,y-51,'#5e5c51',4);polygon([[x+1,y-53],[x-3,y-45],[x+5,y-45]],'#d3d4bd');ellipse(x-11,y+6,6,6,'#4b392c','#b28c57',2);ellipse(x+12,y+5,6,6,'#4b392c','#b28c57',2);if(lvl>=2)polygon([[x-12,y-6],[x,y-14],[x+12,y-6],[x,y+1]],null,'#f3d595',2)}
@@ -430,9 +463,68 @@ function drawEnemy(e){
  if(e.slow>0){ellipse(p.x,p.y+7,s+8,5,null,'#d4d9ac',1.7)}
  if(e.attackFlash>0){ctx.beginPath();ctx.arc(p.x+5,p.y-12,12,-.8,.5);ctx.strokeStyle='#fff4bead';ctx.lineWidth=2;ctx.stroke()}
 }
-function drawSitesAndTowers(){for(let i=0;i<sites.length;i++){const s=sites[i],p=tile(s.c,s.r),tower=towers[i],highlight=chosenSite===i;if(tower){if(highlight){let radius=T[tower.kind].range+(tower.level-1)*15;ctx.beginPath();ctx.arc(p.x,p.y,radius,0,Math.PI*2);ctx.fillStyle='#dee7a312';ctx.fill();ctx.strokeStyle='#f1e6a580';ctx.lineWidth=1.3;ctx.stroke()}platform(p.x,p.y,highlight);if(tower.kind==='archer')timberTower(p.x,p.y,tower.level);if(tower.kind==='crossbow')stoneTower(p.x,p.y,tower.level);if(tower.kind==='ballista')ballista(p.x,p.y,tower.level);if(tower.kind==='barracks'){barracks(p.x,p.y,tower.level);const squad=guards.filter(g=>g.siteId===i);squad.forEach((g,n)=>{ellipse(p.x-19+n*11,p.y+17,4.2,3.5,g.hp>0?'#b3d58b':'#82554b','#483e2b',.8)});}if(tower.flash>0&&tower.kind!=='barracks'){ellipse(p.x+9,p.y-42,3+tower.flash*11,2+tower.flash*7,'#fff2b6a6')}if(tower.level>=2){ctx.fillStyle='#ffe2a6';ctx.font='bold 13px Georgia';ctx.textAlign='center';ctx.fillText('★'.repeat(tower.level-1),p.x,p.y-62)}}else{const glow=chosenKind!==null;platform(p.x,p.y,glow);ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle=glow?'#3e462e':'#685942';ctx.font='bold 23px system-ui';ctx.fillText('+',p.x,p.y-3);if(glow){ctx.strokeStyle='#fff2ac88';ctx.lineWidth=1.4;ellipse(p.x,p.y-2,29+Math.sin(time*3)*2,16+Math.sin(time*3),null,'#e9da98aa',1.4)}}}}
+
+function drawRuins(x,y,s=1){
+ ctx.save();ctx.translate(x,y);ctx.scale(s,s);
+ ellipse(3,5,30,10,'#54432d55');
+ for(let n=0;n<3;n++){
+  const xx=-23+n*18,hh=16+(n===1?11:0);
+  polygon([[xx-10,0],[xx+8,4],[xx+8,-hh],[xx-10,-hh-4]],'#9b825f','#755f46',1.5);
+  polygon([[xx-10,-hh-4],[xx-1,-hh-10],[xx+15,-hh-4],[xx+8,-hh]],'#d4b98c','#816a4e',1);
+  line(xx-6,-hh/2,xx+4,-hh/2-1,'#e1c69a7a',1);
+ }
+ ellipse(-19,7,8,3,'#998360');ellipse(29,5,8,3,'#998360');ctx.restore();
+}
+function drawBoulder(x,y,s=1){
+ ctx.save();ctx.translate(x,y);ctx.scale(s,s);
+ ellipse(3,5,19,6,'#53442c61');
+ polygon([[-17,1],[-11,-11],[2,-19],[17,-9],[21,0],[6,6]],'#a48860','#7c664a',1.2);
+ polygon([[-17,1],[-11,-11],[2,-19],[4,-2]],'#d5b98b');
+ polygon([[4,-2],[2,-19],[17,-9],[21,0],[6,6]],'#927652');line(-8,-5,2,-14,'#f5d9a261',1.2);ctx.restore();
+}
+function drawGateDetails(x,y){
+ // Strengthen the fortress' layered isometric stonework with crenellation, windows and red cloth.
+ ctx.save();
+ for(let i=0;i<6;i++){
+  let xx=x-37+i*13, yy=y-52+i*3.5;
+  line(xx,yy,xx+11,yy+4,'#f0e1b550',.9);
+ }
+ for(let i=0;i<3;i++){
+  rect(x-39+i*13,y-80+i*2,8,8,'#c6b897');line(x-34+i*13,y-76,x-29+i*13,y-76,'#65543b66',1);
+ }
+ for(const q of [-1,1]){
+  const xx=x+q*37;
+  line(xx-3,y-50,xx-3,y-24,'#685b4a',3);
+  polygon([[xx-11,y-55],[xx+7,y-55],[xx+7,y-25],[xx-11,y-25]],q===1?'#a94437':'#8c302a','#4e382d',1.1);
+  line(xx-6,y-45,xx+3,y-35,'#f1ddad',1.5);line(xx+3,y-45,xx-6,y-35,'#f1ddad',1.5);
+ }
+ const glow=ctx.createRadialGradient(x,y-2,1,x,y-2,32);glow.addColorStop(0,'#d39b3955');glow.addColorStop(1,'#d39b3900');ctx.fillStyle=glow;ctx.fillRect(x-32,y-34,64,64);
+ ctx.restore();
+}
+function drawFortificationDetails(x,y,kind,lvl){
+ // Extra brick lines and flags atop player structures (readable even on a small phone).
+ ctx.save();
+ if(kind==='crossbow'){
+  const h=39+(lvl-1)*10;
+  for(let i=0;i<4;i++){line(x+2,y-h+5+i*9,x+17,y-h+1+i*9,'#5b635d75',1.1);line(x-18,y-h+1+i*9,x-3,y-h+8+i*9,'#d7c6a96c',1)}
+  rect(x+8,y-h+16,4,9,'#2d3935');line(x+7,y-h+15,x+13,y-h+15,'#d5c4a5',1);
+ }else if(kind==='archer'){
+  line(x-14,y-14,x+14,y-14,'#f6d39f80',1.2);line(x-12,y-8,x+11,y-8,'#382c2675',1);
+ }else if(kind==='barracks'){
+  for(let j=0;j<4;j++)line(x-17+j*9,y-7,x-12+j*9,y-7,'#e7bb8685',1.3);
+  line(x-25,y+9,x+23,y+9,'#4d382ab0',2.3);
+ }else if(kind==='ballista'){
+  line(x-15,y-26,x+15,y-26,'#e6c18d',1.2);
+  ellipse(x-13,y+5,4,4,null,'#d0a36c',1.3);ellipse(x+13,y+5,4,4,null,'#d0a36c',1.3);
+ }
+ if(lvl>=2){ellipse(x-22,y+11,4,3,'#dfc27a');}
+ ctx.restore();
+}
+
+function drawSitesAndTowers(){for(let i=0;i<sites.length;i++){const s=sites[i],p=tile(s.c,s.r),tower=towers[i],highlight=chosenSite===i;if(tower){if(highlight){let radius=T[tower.kind].range+(tower.level-1)*15;ctx.beginPath();ctx.arc(p.x,p.y,radius,0,Math.PI*2);ctx.fillStyle='#dee7a312';ctx.fill();ctx.strokeStyle='#f1e6a580';ctx.lineWidth=1.3;ctx.stroke()}platform(p.x,p.y,highlight);if(tower.kind==='archer')timberTower(p.x,p.y,tower.level);if(tower.kind==='crossbow')stoneTower(p.x,p.y,tower.level);if(tower.kind==='ballista')ballista(p.x,p.y,tower.level);if(tower.kind==='barracks'){barracks(p.x,p.y,tower.level);const squad=guards.filter(g=>g.siteId===i);squad.forEach((g,n)=>{ellipse(p.x-19+n*11,p.y+17,4.2,3.5,g.hp>0?'#b3d58b':'#82554b','#483e2b',.8)});}drawFortificationDetails(p.x,p.y,tower.kind,tower.level);if(tower.flash>0&&tower.kind!=='barracks'){ellipse(p.x+9,p.y-42,3+tower.flash*11,2+tower.flash*7,'#fff2b6a6')}if(tower.level>=2){ctx.fillStyle='#ffe2a6';ctx.font='bold 13px Georgia';ctx.textAlign='center';ctx.fillText('★'.repeat(tower.level-1),p.x,p.y-62)}}else{const glow=chosenKind!==null;platform(p.x,p.y,glow);ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle=glow?'#3e462e':'#685942';ctx.font='bold 23px system-ui';ctx.fillText('+',p.x,p.y-3);if(glow){ctx.strokeStyle='#fff2ac88';ctx.lineWidth=1.4;ellipse(p.x,p.y-2,29+Math.sin(time*3)*2,16+Math.sin(time*3),null,'#e9da98aa',1.4)}}}}
 function drawFlag(x,y){line(x,y,x,y-34,'#65513b',2.5);polygon([[x,y-34],[x+20,y-29],[x,y-23]],'#9a382f');ellipse(x,y+3,5,4,'#705533')}
-function render(){ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,cssW,cssH);ctx.save();ctx.translate(cssW/2+panX,cssH/2+panY);ctx.scale(scale,scale);ctx.translate(-W/2,-H/2);drawBackground();ground();drawRoute();drawOasis();terrainProps();drawFlag(273,266);drawFlag(936,454);drawAmbientLife();drawSitesAndTowers();drawOrders();let c=tile(14,6);castle(c.x+34,c.y-13);[...enemies.map(e=>({kind:'enemy',y:at(e.progress).y,item:e})),...guards.filter(g=>g.hp>0).map(g=>({kind:'guard',y:g.y,item:g}))].sort((a,b)=>a.y-b.y).forEach(a=>a.kind==='enemy'?drawEnemy(a.item):drawGuard(a.item));for(let s of shots){const p=at(s.target.progress);if(s.kind==='ballista'){ellipse(s.x,s.y,5,5,'#ffcb77');line(s.x-7,s.y+5,s.x+5,s.y-6,'#874b30',3)}else{line(s.x-6,s.y+3,s.x+6,s.y-3,'#fff0ad',2.7)}}for(let p of particles){ctx.globalAlpha=clamp(p.life/.5,0,1);ellipse(p.x,p.y,p.size,p.size*.7,p.color);ctx.globalAlpha=1}drawImpacts();drawTwilight();ctx.restore()}
+function render(){ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,cssW,cssH);ctx.save();ctx.translate(cssW/2+panX,cssH/2+panY);ctx.scale(scale,scale);ctx.translate(-W/2,-H/2);drawBackground();ground();drawRoute();drawOasis();terrainProps();drawRuins(344,355,.61);drawRuins(1005,389,.7);drawBoulder(333,420,.8);drawBoulder(944,250,.72);drawBoulder(750,468,.6);drawFlag(273,266);drawFlag(936,454);drawAmbientLife();drawSitesAndTowers();drawOrders();let c=tile(14,6);castle(c.x+34,c.y-13);drawGateDetails(c.x+34,c.y-13);[...enemies.map(e=>({kind:'enemy',y:at(e.progress).y,item:e})),...guards.filter(g=>g.hp>0).map(g=>({kind:'guard',y:g.y,item:g}))].sort((a,b)=>a.y-b.y).forEach(a=>a.kind==='enemy'?drawEnemy(a.item):drawGuard(a.item));for(let s of shots){const p=at(s.target.progress);if(s.kind==='ballista'){ellipse(s.x,s.y,5,5,'#ffcb77');line(s.x-7,s.y+5,s.x+5,s.y-6,'#874b30',3)}else{line(s.x-6,s.y+3,s.x+6,s.y-3,'#fff0ad',2.7)}}for(let p of particles){ctx.globalAlpha=clamp(p.life/.5,0,1);ellipse(p.x,p.y,p.size,p.size*.7,p.color);ctx.globalAlpha=1}drawImpacts();drawTwilight();
+ const vignette=ctx.createRadialGradient(W/2,H/2,180,W/2,H/2,740);vignette.addColorStop(0,'#33221100');vignette.addColorStop(1,'#2816065f');ctx.fillStyle=vignette;ctx.fillRect(0,0,W,H);ctx.restore()}
 function refreshSize(){const r=cvs.getBoundingClientRect();cssW=Math.max(100,r.width);cssH=Math.max(100,r.height);dpr=Math.min(window.devicePixelRatio||1,2);cvs.width=Math.round(cssW*dpr);cvs.height=Math.round(cssH*dpr);scale=Math.min(cssW/W,cssH/H)*zoom}
 function adjustZoom(factor){zoom=clamp(zoom*factor,.7,2.8);scale=Math.min(cssW/W,cssH/H)*zoom;panX=clamp(panX,-cssW*.72,cssW*.72);panY=clamp(panY,-cssH*.7,cssH*.7)}
 function hit(evt){const r=cvs.getBoundingClientRect();let x=evt.clientX-r.left,y=evt.clientY-r.top;return {x:(x-cssW/2-panX)/scale+W/2,y:(y-cssH/2-panY)/scale+H/2}}
